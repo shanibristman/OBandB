@@ -9,6 +9,7 @@
     "publish:heroku": "git push heroku main",
     "build:client": "cd client && npm run build",
     "client:install": "cd client && npm i --prod",
+    "install:all": "npm i && cd client && npm i",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
