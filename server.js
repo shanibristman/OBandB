@@ -13,6 +13,7 @@ server.use(express.static(path.join(__dirname, 'client/build/')));
 
 //routes
 server.use('/api/notes', require('./controllers/noteController'));
+server.use('/api/users', require('./controllers/UserController'));
 
 //Global Get Request
 server.get('*/*', async (req, res) => {

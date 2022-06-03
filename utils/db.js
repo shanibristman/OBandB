@@ -12,7 +12,9 @@ class DB {
     async FindAll(collection, options = {}) {
         try {
             await this.client.connect();
+            console.log(collection)
             return await this.client.db(this.dbName).collection(collection).find(options).toArray();
+            
         } catch (error) {
 
         } finally {
