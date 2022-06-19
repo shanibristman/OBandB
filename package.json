@@ -7,9 +7,9 @@
     "start":"node server.js",
     "start:dev": "nodemon server.js",
     "publish:heroku": "git push heroku main",
-    "build:client": "cd client && npm run build",
-    "client:install": "cd client && npm i --prod",
-    "install:all": "npm i && cd client && npm i",
+    "build:client": "cd client && npm i--prod && npm run build",
+    "build": "npm run build:client",
+    "install:all": "npm i --prod && cd client && npm i --prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
