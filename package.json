@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "npm run client:install && npm run build:client && node server.js",
+    "start":"node server.js",
     "start:dev": "nodemon server.js",
     "publish:heroku": "git push heroku main",
     "build:client": "cd client && npm run build",

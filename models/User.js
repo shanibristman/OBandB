@@ -1,4 +1,3 @@
-
 const DB = require('../utils/db');
 
 class User {
@@ -29,7 +28,9 @@ class User {
 
     async GetAllActiveUsers() {
         try {
+            console.log(await new DB().FindAll('Users', { isActive: true }))
             return await new DB().FindAll('Users', { isActive: true });
+
         } catch (error) {
             return error;
         }
