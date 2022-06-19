@@ -6,7 +6,6 @@ const UserRouter = require('express').Router();
 UserRouter.get('/', async (req, res) => {
     try {
         let allUser = await new User().GetAllActiveUsers();
-        console.log("alon"+allUser)
         res.status(200).json(allUser);
     } catch (error) {
         res.status(500).json({ error });
