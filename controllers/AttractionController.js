@@ -33,9 +33,11 @@ AttrctionRouter.post('/add', async (req, res) => {
     let attrction = new Attrction(owner_id, attrction_name,catagory,rate, city, address,
         people_amount, age,description,start_time,price, duration)
     try {
-        let result = await attrction.InsertNewUser();
+        let result = await attrction.InsertNewAttrction();
         res.status(201).json(result);
+        cons
     } catch (error) {
+        console.log(error)
         res.status(500).json({ error })
     }
 });
