@@ -35,7 +35,6 @@ AttrctionRouter.post('/add', async (req, res) => {
     try {
         let result = await attrction.InsertNewAttrction();
         res.status(201).json(result);
-        cons
     } catch (error) {
         console.log(error)
         res.status(500).json({ error })
