@@ -14,7 +14,7 @@ server.use(express.static(path.join(__dirname, 'client/build/')));
 //routes
 server.use('/api/notes', require('./controllers/noteController'));
 server.use('/api/users', require('./controllers/UserController'));
-server.use('/api/attrction', require('./controllers/AttractionController'));
+server.use('/api/attraction', require('./controllers/AttractionController'));
 server.use('/api/business', require('./controllers/BusinessController'));
 server.use('/api/category', require('./controllers/CategoryController'));
 
