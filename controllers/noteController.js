@@ -14,7 +14,6 @@ NoteRouter.get('/', async (req, res) => {
 
 NoteRouter.get('/:id', async (req, res) => {
     let { id } = req.params;
-
     try {
         let note = await new Note().GetNoteByID(id);
         if (note.title == undefined) 
