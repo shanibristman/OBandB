@@ -9,7 +9,7 @@ class Category {
 
     async GetAllCategory() {
         try {
-            return await new DB().FindAll('Category',{ isActive: true });
+            return await new DB().FindAll('Category');
         } catch (error) {
             return error;
         }
