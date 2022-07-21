@@ -82,6 +82,14 @@ class Attrction {
             return error;
         }
     }
+
+    async activeAttrction(id) {
+        try {
+            return await new DB().activateDocById('Attrction',id);
+        } catch (error) {
+            return error;
+        }
+    }
 }
 
 module.exports = Attrction;

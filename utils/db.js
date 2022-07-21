@@ -83,6 +83,20 @@ class DB {
         }
     }
 
+    async activateDocById(collection, id) {
+        try {
+            await this.client.connect();
+            return await this.client.db(this.dbName).collection(collection).updateOne(
+                { _id: ObjectId(id) },
+                { $set: { isActive: true } });
+        } catch (error) {
+            console.log(error)
+            return error;
+        } finally {
+            await this.client.close();
+        }
+    }
+
     async ReactivateDocById(collection, id) {
         try {
             await this.client.connect();
