@@ -36,7 +36,7 @@ class User {
     }
     async GetUserByEmail(email) {
         try {
-            return await new DB().FindAll('Users', { email: email })[0];
+            return await new DB().FindAll('Users', { email: email });
 
         } catch (error) {
             return error;
