@@ -34,6 +34,14 @@ class User {
             return error;
         }
     }
+    async GetUserByEmail(email) {
+        try {
+            return await new DB().FindAll('Users', { email: email })[0];
+
+        } catch (error) {
+            return error;
+        }
+    }
 
     async GetAllUsers() {
         try {
