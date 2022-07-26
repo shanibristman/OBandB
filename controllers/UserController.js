@@ -36,6 +36,21 @@ UserRouter.get('/:id', async (req, res) => {
     }
 });
 
+UserRouter.post('/logIn', async (req, res) => {
+    let { email, password} = req.body;
+    try {
+        let user = await new User().GetUserByEmail(email);
+        if (user.length !== 0 && user[0].password === password) {
+            res.status(200).json(user[0]);
+        }
+        else{
+            res.status(404).json({ message: 'user not found', user });
+        }
+    } catch (error) {
+        res.status(500).json({ error });
+    }
+});
+
 UserRouter.post('/add', async (req, res) => {
 
     let { first_name, last_name, email, phone_number, city, birth_date
