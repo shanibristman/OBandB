@@ -61,9 +61,9 @@ UserRouter.post('/logIn', async (req, res) => {
 UserRouter.post('/add', async (req, res) => {
 
     let { first_name, last_name, email, phone_number, city, birth_date
-        , categories, password } = req.body;
+        , categories,img, password } = req.body;
     let user = new User(first_name, last_name, email, phone_number, city, birth_date
-        , categories, null, password)
+        , categories, img, password)
     try {
         let result = await user.InsertNewUser();
         res.status(201).json(result);
