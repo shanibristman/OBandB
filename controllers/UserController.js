@@ -105,17 +105,18 @@ UserRouter.post('/uploadImg', upload.single('image'), async (req, res) => {
 
         })
 
-        // res.status(200).json(result);
+        res.status(200).json({url:resultImg.secure_url});
 
-        let user = await new User().GetUserByEmail(req.body.email);
-        user = user[0];
-        user.img = resultImg.secure_url;
-        let result = await new User(user.first_name, user.last_name, user.email, user.phone_number, user.city, user.birth_date
-            , user.categories, user.img, user.password).UpdateUserById(user._id);
-        if (result.acknowledged){
-            res.status(200).json(user);
-        }
-        res.status(500).json(result);
+        // let user = await new User().GetUserByEmail(req.body.email);
+        // user = user[0];
+        // user.img = resultImg.secure_url;
+        // let result = await new User(user.first_name, user.last_name, user.email, user.phone_number, user.city, user.birth_date
+        //     , user.categories, user.img, user.password).UpdateUserById(user._id);
+        // if (result.acknowledged){
+        //     res.status(200).json(user);
+        // }
+        // res.status(500).json(result);
+        
     }
     catch (err) {
         res.status(500).json(err);
