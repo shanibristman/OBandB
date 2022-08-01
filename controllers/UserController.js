@@ -1,6 +1,13 @@
 const User = require('../models/User');
 const UserRouter = require('express').Router();
 const multer = require('multer');
+const cloudinary = require('cloudinary').v2;
+const streamifier = require('streamifier')
+
+cloudinary.config({
+    secure: true
+  });
+//   console.log(cloudinary.config());
 
 const fileStorageEngine = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -91,9 +98,18 @@ UserRouter.delete('/:id', async (req, res) => {
 UserRouter.post('/uploadImg', upload.single('image'), async (req, res) => {
     try {
         let image = req.file.path;
+
+        let resultImg = await cloudinary.uploader.upload(image, {
+            resource_type: 'image',
+            folder: "Users"
+
+        })
+
+        // res.status(200).json(result);
+
         let user = await new User().GetUserByEmail(req.body.email);
         user = user[0];
-        user.img = image;
+        user.img = resultImg.secure_url;
         let result = await new User(user.first_name, user.last_name, user.email, user.phone_number, user.city, user.birth_date
             , user.categories, user.img, user.password).UpdateUserById(user._id);
         if (result.acknowledged){
@@ -105,5 +121,8 @@ UserRouter.post('/uploadImg', upload.single('image'), async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+
+
 
 module.exports = UserRouter;
