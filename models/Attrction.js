@@ -16,7 +16,7 @@ class Attrction {
     isActive;
 
     constructor( owner_id="", attrction_name="",catagory="",rate="", city="", address="",
-        people_amount="", age="",description="",start_time="",price="", duration="") {
+        people_amount="", age="",description="",start_time="",price="", duration="", email="",phone_number="",logo_img="") {
         this.owner_id = owner_id;
         this.attrction_name = attrction_name;
         this.catagory=catagory;
@@ -29,6 +29,9 @@ class Attrction {
         this.start_time = start_time;
         this.price=price;
         this.duration=duration;
+        this.email = email;
+        this.phone_number = phone_number;
+        this.logo_img=logo_img;
         this.isActive=true;
     }
 
