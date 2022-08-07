@@ -45,6 +45,7 @@ class Business {
         } catch (error) {
             return error;
         }
+        
     }
 
     async GetBusinessByID(id) {
