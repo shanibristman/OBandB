@@ -13,6 +13,7 @@ class Business {
     sells_history;
     items;//atrctions
     isActive;
+    private;
 
     constructor( name="", city="", adress="", email="",phone_number="" ,password="",
         img="",description="",categories="",sells_history="", items="") {
@@ -28,6 +29,7 @@ class Business {
         this.sells_history=sells_history;
         this.items=items;
         this.isActive = true;
+        this.private = false;
     }
 
     async GetAllActiveBusiness() {

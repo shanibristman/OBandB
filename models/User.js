@@ -11,6 +11,7 @@ class User {
     img;
     password;
     isActive;
+    private;
 
     constructor( first_name = "", last_name = "",email="",phone_number="",
     city="",birth_date="",categories="",img="", password="") {
@@ -24,6 +25,7 @@ class User {
         this.img=img;
         this.password=password;
         this.isActive = true;
+        this.private=true;
     }
 
     async GetAllActiveUsers() {
