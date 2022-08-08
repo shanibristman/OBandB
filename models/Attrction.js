@@ -14,9 +14,10 @@ class Attrction {
     price;
     duration;
     isActive;
+    privateOwner;
 
     constructor( owner_id="", attrction_name="",catagory="",rate="", city="", address="",
-        people_amount="", age="",description="",start_time="",price="", duration="", email="",phone_number="",logo_img="") {
+        people_amount="", age="",description="",start_time="",price="", duration="", email="",phone_number="",logo_img="", privateOwner="") {
         this.owner_id = owner_id;
         this.attrction_name = attrction_name;
         this.catagory=catagory;
@@ -32,7 +33,9 @@ class Attrction {
         this.email = email;
         this.phone_number = phone_number;
         this.logo_img=logo_img;
+        this.privateOwner=privateOwner;
         this.isActive=true;
+
     }
 
     async GetAllActiveAttrction() {
