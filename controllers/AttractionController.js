@@ -12,6 +12,16 @@ AttrctionRouter.get('/', async (req, res) => {
     }
 });
 
+AttrctionRouter.get('/all', async (req, res) => {
+    try {
+        let allAttrction = await new Attrction().GetAllAttrction();
+        res.status(200).json(allAttrction);
+    } catch (error) {
+        res.status(500).json({ error });
+    }
+});
+
+
 AttrctionRouter.get('/:id', async (req, res) => {
     let { id } = req.params;
 
