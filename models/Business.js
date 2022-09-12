@@ -8,6 +8,7 @@ class Business {
     phone_number;
     password;
     img;
+    logoImg;
     description;
     categories;
     sells_history;
@@ -16,7 +17,7 @@ class Business {
     private;
 
     constructor( name="", city="", adress="", email="",phone_number="" ,password="",
-        img="",description="",categories="",sells_history="", items="") {
+        img="",logoImg="",description="",categories="",sells_history="", items="") {
         this.name = name;
         this.city=city;
         this.adress = adress;
@@ -24,6 +25,7 @@ class Business {
         this.phone_number=phone_number;
         this.password=password;
         this.img=img;
+        this.logoImg=logoImg;
         this.description=description;
         this.categories=categories;
         this.sells_history=sells_history;

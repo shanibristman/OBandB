@@ -29,9 +29,9 @@ AttrctionRouter.get('/:id', async (req, res) => {
 AttrctionRouter.post('/add', async (req, res) => {
 
     let {owner_id, attrction_name,catagory,rate, city, address,
-    people_amount, age,description,start_time,price, duration,email,phone_number,logo_img} = req.body;
+    people_amount, age,description,start_time,price, duration,img} = req.body;
     let attrction = new Attrction(owner_id, attrction_name,catagory,rate, city, address,
-        people_amount, age,description,start_time,price, duration,email,phone_number,logo_img)
+        people_amount, age,description,start_time,price, duration,img)
     try {
         let result = await attrction.InsertNewAttrction();
         res.status(201).json(result);
@@ -44,10 +44,10 @@ AttrctionRouter.post('/add', async (req, res) => {
 AttrctionRouter.put('/:id', async (req, res) => {
     let {id} = req.params;
     let {owner_id, attrction_name,catagory,rate, city, address,
-        people_amount, age,description,start_time,price, duration} = req.body;
+        people_amount, age,description,start_time,price, duration, img} = req.body;
     try {
         let result = await new Attrction(owner_id, attrction_name,catagory,rate, city, address,
-            people_amount, age,description,start_time,price, duration).UpdateAttrctionById(id);
+            people_amount, age,description,start_time,price, duration,img).UpdateAttrctionById(id);
         res.status(200).json(result);
     } catch (error) {
         res.status(500).json({ error });

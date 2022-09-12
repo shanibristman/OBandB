@@ -28,9 +28,9 @@ BusinessRouter.get('/:id', async (req, res) => {
 
 BusinessRouter.post('/add', async (req, res) => {
 
-    let {name,city,adress,email,phone_number,password,img, description,categories,
+    let {name,city,adress,email,phone_number,password,img,logoImg, description,categories,
         sells_history,items} = req.body;
-    let business = new Business( name,city,adress,email,phone_number,password,img, description,categories,
+    let business = new Business( name,city,adress,email,phone_number,password,img,logoImg,description,categories,
         sells_history,items)
     try {
         let result = await business.InsertNewBusiness();
@@ -42,10 +42,10 @@ BusinessRouter.post('/add', async (req, res) => {
 
 BusinessRouter.put('/:id', async (req, res) => {
     let {id} = req.params;
-    let {name,city,adress,email,phone_number,password,img, description,categories,
+    let {name,city,adress,email,phone_number,password,img,logoImg, description,categories,
         sells_history,items} = req.body;
     try {
-        let result = await new Business(name,city,adress,email,phone_number,password,img, description,categories,
+        let result = await new Business(name,city,adress,email,phone_number,password,img,logoImg, description,categories,
             sells_history,items).UpdateBuById(id);
         res.status(200).json(result);
     } catch (error) {
