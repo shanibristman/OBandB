@@ -10,11 +10,13 @@ class User {
     categories;
     img;
     password;
+    sells_history;
+    order_history;
     isActive;
     private;
 
     constructor( first_name = "", last_name = "",email="",phone_number="",
-    city="",birth_date="",categories="",img="", password="") {
+    city="",birth_date="",categories="",img="", password="",sells_history="",order_history="") {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email=email;
@@ -24,6 +26,8 @@ class User {
         this.categories=categories;
         this.img=img;
         this.password=password;
+        this.sells_history =sells_history;
+        this.order_history=order_history;
         this.isActive = true;
         this.private=true;
     }
@@ -84,6 +88,23 @@ class User {
             return await new DB().DeactivateDocById('Users',id);
         } catch (error) {
             return error;
+        }
+    }
+
+    async AddSale(id, item){
+        try {
+            return await new DB().AddSale('Users',id,item);
+        } catch (error) {
+            return JSON.stringify(error);
+        }
+    }
+
+    async AddOrder(id, item){
+        try{
+            return await new DB().AddOrder('Users',id,item);
+        }
+        catch (error) {
+            return JSON.stringify(error);
         }
     }
 }

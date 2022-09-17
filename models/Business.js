@@ -85,6 +85,14 @@ class Business {
             return error;
         }
     }
+
+    async AddSale(id, item){
+        try {
+            return await new DB().AddSale('Business',id,item);
+        } catch (error) {
+            return JSON.stringify(error);
+        }
+    }
 }
 
 module.exports = Business;

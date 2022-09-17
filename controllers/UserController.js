@@ -61,9 +61,9 @@ UserRouter.post('/logIn', async (req, res) => {
 UserRouter.post('/add', async (req, res) => {
 
     let { first_name, last_name, email, phone_number, city, birth_date
-        , categories,img, password } = req.body;
+        , categories,img, password,sells_history,order_history } = req.body;
     let user = new User(first_name, last_name, email, phone_number, city, birth_date
-        , categories, img, password)
+        , categories, img, password,sells_history,order_history)
     try {
         let result = await user.InsertNewUser();
         res.status(201).json(result);
@@ -75,10 +75,10 @@ UserRouter.post('/add', async (req, res) => {
 UserRouter.put('/:id', async (req, res) => {
     let { id } = req.params;
     let { first_name, last_name, email, phone_number, city, birth_date
-        , categories, img, password } = req.body;
+        , categories, img, password,sells_history,order_history } = req.body;
     try {
         let result = await new User(first_name, last_name, email, phone_number, city, birth_date
-            , categories, img, password).UpdateUserById(id);
+            , categories, img, password,sells_history,order_history).UpdateUserById(id);
         res.status(200).json(result);
     } catch (error) {
         res.status(500).json({ error });
@@ -122,6 +122,33 @@ UserRouter.post('/uploadImg', upload.single('image'), async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+UserRouter.put('/sales/:id', async (req, res) => {
+    let {id} = req.params;
+    let {item} = req.body;
+    console.log(id);
+    console.log(item);
+    try{
+        let result = await new User().AddSale(id, item);
+        res.status(200).json(result);
+    }
+    catch (error) {
+        res.status(500).json(JSON.stringify(error));
+    }
+})
+
+UserRouter.put('/salesOrder/:id', async (req, res) => {
+    let {id} = req.params;
+    let {item} = req.body;
+    try{
+        let result = await new User().AddOrder(id, item);
+        res.status(200).json(result);
+    }
+    catch (error) {
+        res.status(500).json(JSON.stringify(error));
+    }
+})
+
 
 
 

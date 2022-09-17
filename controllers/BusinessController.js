@@ -59,9 +59,23 @@ BusinessRouter.delete('/:id', async (req, res) => {
         let result = await new Business().DeleteBusiness(id);
         res.status(200).json(result);
     } catch (error) {
-        es.status(500).json({ error });
+        res.status(500).json({ error });
     }
 });
+
+BusinessRouter.put('/sales/:id', async (req, res) => {
+    let {id} = req.params;
+    let {item} = req.body;
+    console.log(id);
+    console.log(item);
+    try{
+        let result = await new Business().AddSale(id, item);
+        res.status(200).json(result);
+    }
+    catch (error) {
+        res.status(500).json(JSON.stringify(error));
+    }
+})
 
 
 module.exports = BusinessRouter;

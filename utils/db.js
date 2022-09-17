@@ -13,7 +13,7 @@ class DB {
         try {
             await this.client.connect();
             return await this.client.db(this.dbName).collection(collection).find(options).toArray();
-            
+
         } catch (error) {
             console.log(error);
         } finally {
@@ -106,6 +106,46 @@ class DB {
         } catch (error) {
             console.log(error)
             return error;
+        } finally {
+            await this.client.close();
+        }
+    }
+
+    async AddSale(collection, id, item) {
+        try {
+            await this.client.connect();
+            switch (collection) {
+                case 'Business':
+                    return await this.client.db(this.dbName).collection(collection).updateOne(
+                        { _id: ObjectId(id) },
+                        { $push: { 'sells_history': item } }
+                    );
+                case 'Users':
+                    return await this.client.db(this.dbName).collection(collection).updateOne(
+                        { _id: ObjectId(id) },
+                        { $push: { 'sells_history': item } }
+                    );
+            }
+        }
+        catch (error) {
+            console.log(error)
+            return JSON.stringify(error);
+        } finally {
+            await this.client.close();
+        }
+    }
+
+    async AddOrder(collection, id, item) {
+        try {
+            await this.client.connect();
+            return await this.client.db(this.dbName).collection(collection).updateOne(
+                { _id: ObjectId(id) },
+                { $push: { 'order_history': item } }
+            );
+        }
+        catch (error) {
+            console.log(error)
+            return JSON.stringify(error);
         } finally {
             await this.client.close();
         }
