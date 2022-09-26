@@ -39,9 +39,9 @@ AttrctionRouter.get('/:id', async (req, res) => {
 AttrctionRouter.post('/add', async (req, res) => {
 
     let {owner_id, attrction_name,catagory,rate, city, address,
-    people_amount, age,description,start_time,price, duration,img} = req.body;
+    people_amount, age,description,start_time,price, duration,img,home_screen_img} = req.body;
     let attrction = new Attrction(owner_id, attrction_name,catagory,rate, city, address,
-        people_amount, age,description,start_time,price, duration,img)
+        people_amount, age,description,start_time,price, duration,img,home_screen_img)
     try {
         let result = await attrction.InsertNewAttrction();
         res.status(201).json(result);
