@@ -51,8 +51,7 @@ UserRouter.post('/logIn', async (req, res) => {
             res.status(200).json(user[0]);
         }
         else{
-            user=null
-            res.status(404).json({ message: 'user not found',user});
+            res.status(404).json(null);
         }
     } catch (error) {
         res.status(500).json({ error });
