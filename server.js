@@ -12,9 +12,11 @@ const server = express();
 
 server.use(cors()); //allow us to access the server from each endpoint
 server.use(express.json()); //add json support for POST, GET, PUT, DELETE 
-server.use(express.static(path.join(__dirname, 'client/build/')));
+//server.use(express.static(path.join(__dirname, 'client/build/')));
 server.use('/images/users', express.static(path.join(__dirname,'images/user')));
 server.use('/images/attractions', express.static(path.join(__dirname,'images/attractions')));
+server.use('/images/home_screen_images', express.static(path.join(__dirname,'images/home_screen_images')));
+
 
 //routes
 
