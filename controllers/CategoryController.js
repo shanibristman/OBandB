@@ -7,6 +7,7 @@ CategoryRouter.get('/', async (req, res) => {
     try {
         let allCategory = await new Category().GetAllCategory();
         res.status(200).json(allCategory);
+        
     } catch (error) {
         res.status(500).json({ error });
     }
