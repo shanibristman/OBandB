@@ -52,6 +52,15 @@ class Business {
         
     }
 
+    async GetBusinessByEmail(email) {
+        try {
+            return await new DB().FindAll('Business', { email: email });
+
+        } catch (error) {
+            return error;
+        }
+    }
+
     async GetBusinessByID(id) {
         try {
             return await new DB().FindByID('Business', id);
