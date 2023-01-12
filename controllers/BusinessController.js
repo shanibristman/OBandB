@@ -12,6 +12,15 @@ BusinessRouter.get('/', async (req, res) => {
     }
 });
 
+BusinessRouter.get('/all', async (req, res) => {
+    try {
+        let allB = await new Business().GetAllBusiness();
+        res.status(200).json(allB);
+    } catch (error) {
+        res.status(500).json({ error });
+    }
+});
+
 BusinessRouter.post('/logIn', async (req, res) => {
     let { email, password} = req.body;
     try {
