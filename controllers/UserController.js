@@ -29,6 +29,15 @@ UserRouter.get('/', async (req, res) => {
     }
 });
 
+UserRouter.get('/all', async (req,res)=>{
+    try{
+        let allUsers = await new User().GetAllUsers();
+        res.status(200).json(allUsers);
+    } catch (error) {
+        res.status(500).json({ error });
+    }
+});
+
 UserRouter.get('/:id', async (req, res) => {
     let { id } = req.params;
 
