@@ -95,6 +95,14 @@ class Business {
         }
     }
 
+    async activeBusiness(id) {
+        try {
+            return await new DB().activateDocById('Business',id);
+        } catch (error) {
+            return error;
+        }
+    }
+
     async AddSale(id, item){
         try {
             return await new DB().AddSale('Business',id,item);
