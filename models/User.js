@@ -91,6 +91,14 @@ class User {
         }
     }
 
+    async activeUser(id) {
+        try {
+            return await new DB().activateDocById('Users',id);
+        } catch (error) {
+            return error;
+        }
+    }
+
     async AddSale(id, item){
         try {
             return await new DB().AddSale('Users',id,item);

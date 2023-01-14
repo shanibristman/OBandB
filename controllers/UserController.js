@@ -104,6 +104,16 @@ UserRouter.delete('/:id', async (req, res) => {
     }
 });
 
+UserRouter.put('/beActive/:id', async (req, res) => {
+    let {id} = req.params;
+    try {
+        let result = await new User().activeUser(id);
+        res.status(200).json(result);
+    } catch (error) {
+        es.status(500).json({ error });
+    }
+});
+
 UserRouter.post('/uploadImg', upload.single('image'), async (req, res) => {
     try {
         let image = req.file.path;
