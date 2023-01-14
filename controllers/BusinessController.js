@@ -89,7 +89,7 @@ BusinessRouter.delete('/:id', async (req, res) => {
 BusinessRouter.put('/beActive/:id', async (req, res) => {
     let {id} = req.params;
     try {
-        let result = await new User().activeUser(id);
+        let result = await new Business().activeBusiness(id);
         res.status(200).json(result);
     } catch (error) {
         es.status(500).json({ error });
