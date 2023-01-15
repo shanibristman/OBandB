@@ -117,7 +117,7 @@ UserRouter.put('/beActive/:id', async (req, res) => {
 UserRouter.post('/uploadImg', upload.single('image'), async (req, res) => {
     try {
         let image = req.file.path;
-
+        console.log(req.file.path)
         let resultImg = await cloudinary.uploader.upload(image, {
             resource_type: 'image',
             folder: "Users"
