@@ -17,9 +17,10 @@ class Attrction {
     home_screen_img;
     privateOwner;
     isActive;
+    isApproved;
 
     constructor( owner_id="", attrction_name="",catagory="",rate="", city="", address="",
-        people_amount="", age="",description="",start_time="",price="",img="", duration="", home_screen_img="",privateOwner="") {
+        people_amount="", age="",description="",start_time="",price="",img="", duration="", home_screen_img="",privateOwner="",isActive="",isApproved="") {
         this.owner_id = owner_id;
         this.attrction_name = attrction_name;
         this.catagory=catagory;
@@ -35,7 +36,8 @@ class Attrction {
         this.duration=duration;
         this.home_screen_img=home_screen_img;
         this.privateOwner=privateOwner;
-        this.isActive=true;
+        this.isActive=isActive;
+        this.isApproved=isApproved;
 
     }
 
