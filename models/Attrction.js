@@ -99,6 +99,14 @@ class Attrction {
             return error;
         }
     }
+
+    async approveAttrction(id) {
+        try {
+            return await new DB().approveDocById('Attrction',id);
+        } catch (error) {
+            return error;
+        }
+    }
 }
 
 module.exports = Attrction;

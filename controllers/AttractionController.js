@@ -74,6 +74,16 @@ AttrctionRouter.put('/beActive/:id', async (req, res) => {
     }
 });
 
+AttrctionRouter.put('/isApproved/:id', async (req, res) => {
+    let {id} = req.params;
+    try {
+        let result = await new Attrction().approveAttrction(id);
+        res.status(200).json(result);
+    } catch (error) {
+        es.status(500).json({ error });
+    }
+});
+
 AttrctionRouter.delete('/:id', async (req, res) => {
     let {id} = req.params;
     try {
