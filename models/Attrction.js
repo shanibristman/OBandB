@@ -12,11 +12,11 @@ class Attrction {
     description;
     start_time;
     price;
-    duration;
     img;
-    isActive;
-    privateOwner;
+    duration;
     home_screen_img;
+    privateOwner;
+    isActive;
 
     constructor( owner_id="", attrction_name="",catagory="",rate="", city="", address="",
         people_amount="", age="",description="",start_time="",price="",img="", duration="", home_screen_img="",privateOwner="") {
@@ -31,11 +31,11 @@ class Attrction {
         this.description=description;
         this.start_time = start_time;
         this.price=price;
+        this.img=img;
         this.duration=duration;
+        this.home_screen_img=home_screen_img;
         this.privateOwner=privateOwner;
         this.isActive=true;
-        this.img=img;
-        this.home_screen_img=home_screen_img;
 
     }
 
